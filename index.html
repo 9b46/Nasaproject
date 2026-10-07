@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Space Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="game">
+
+    <!-- ===================================================== -->
+    <!-- LAUNCH SCREEN -->
+    <!-- ===================================================== -->
+
+    <section id="launchScreen" class="screen launch-screen">
+
+        <header class="top-bar">
+
+            <div class="game-logo">
+                SPACE EXPLORER
+            </div>
+
+            <div class="mission-status">
+                MISSION 01
+            </div>
+
+        </header>
+
+
+        <div class="launch-text">
+
+            <p class="small-title">
+                EXPLORATION PROGRAM
+            </p>
+
+            <h1>
+                Begin Your Journey
+            </h1>
+
+            <p class="description">
+                Launch from Earth and explore the Solar System.
+                Discover Mars, investigate planetary materials,
+                and complete the Mars exploration package.
+            </p>
+
+        </div>
+
+
+        <!-- ROCKET -->
+
+        <button
+            id="rocket"
+            class="rocket-button"
+            type="button"
+            aria-label="Launch rocket"
+        >
+
+            <svg
+                class="rocket-svg"
+                viewBox="0 0 120 280"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <path
+                    d="
+                    M60 8
+                    C87 38 95 88 88 162
+                    L76 213
+                    H44
+                    L32 162
+                    C25 88 33 38 60 8Z
+                    "
+                    fill="#e8ecef"
+                />
+
+                <path
+                    d="
+                    M60 8
+                    C73 24 82 45 86 65
+                    H34
+                    C38 45 47 24 60 8Z
+                    "
+                    fill="#bcc5ca"
+                />
+
+                <circle
+                    cx="60"
+                    cy="97"
+                    r="17"
+                    fill="#0c1820"
+                    stroke="#69c1e9"
+                    stroke-width="4"
+                />
+
+                <path
+                    d="M43 164 L14 216 L46 200Z"
+                    fill="#8d989f"
+                />
+
+                <path
+                    d="M77 164 L106 216 L74 200Z"
+                    fill="#8d989f"
+                />
+
+                <rect
+                    x="48"
+                    y="209"
+                    width="24"
+                    height="22"
+                    rx="3"
+                    fill="#536068"
+                />
+
+
+                <g class="rocket-flame">
+
+                    <path
+                        d="M47 229 L60 278 L73 229Z"
+                        fill="#e86732"
+                    />
+
+                    <path
+                        d="M53 229 L60 261 L67 229Z"
+                        fill="#ffd68a"
+                    />
+
+                </g>
+
+            </svg>
+
+        </button>
+
+
+        <div class="launch-platform"></div>
+
+
+        <div class="earth-ground">
+
+            <div class="mountain mountain-one"></div>
+            <div class="mountain mountain-two"></div>
+
+        </div>
+
+
+        <div
+            id="message"
+            class="launch-instruction"
+        >
+
+            <span class="pulse-dot"></span>
+
+            CLICK ROCKET TO INITIATE LAUNCH
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- SOLAR SYSTEM -->
+    <!-- ===================================================== -->
+
+    <section
+        id="solarScreen"
+        class="screen solar-screen hidden"
+    >
+
+        <div class="stars"></div>
+
+
+        <header class="solar-header">
+
+            <div>
+
+                <p class="small-title">
+                    SOLAR SYSTEM
+                </p>
+
+                <h2>
+                    Select Destination
+                </h2>
+
+            </div>
+
+
+            <div class="mission-status">
+                NASA PLANETARY EXPLORATION
+            </div>
+
+        </header>
+
+
+        <div class="solar-system">
+
+
+            <!-- SUN -->
+
+            <div class="sun">
+
+                <div class="sun-surface"></div>
+
+            </div>
+
+
+            <!-- MERCURY -->
+
+            <button
+                class="planet mercury"
+                data-planet="Mercury"
+                data-description="Mercury is the smallest planet and the closest planet to the Sun."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA15160/PIA15160~medium.jpg"
+                    alt="Mercury"
+                >
+
+                <span>Mercury</span>
+
+            </button>
+
+
+            <!-- VENUS -->
+
+            <button
+                class="planet venus"
+                data-planet="Venus"
+                data-description="Venus is surrounded by a dense atmosphere and experiences extreme surface temperatures."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA23791/PIA23791~medium.jpg"
+                    alt="Venus"
+                >
+
+                <span>Venus</span>
+
+            </button>
+
+
+            <!-- EARTH -->
+
+            <button
+                class="planet earth"
+                data-planet="Earth"
+                data-description="Earth is humanity's home world and the starting point of this exploration mission."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA18033/PIA18033~medium.jpg"
+                    alt="Earth"
+                >
+
+                <span>Earth</span>
+
+            </button>
+
+
+            <!-- MARS -->
+
+            <button
+                class="planet mars"
+                data-planet="Mars"
+                data-description="Mars is a cold desert world containing evidence of a complex geological and environmental history."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA00407/PIA00407~medium.jpg"
+                    alt="Mars"
+                >
+
+                <span>Mars</span>
+
+            </button>
+
+
+            <!-- JUPITER -->
+
+            <button
+                class="planet jupiter"
+                data-planet="Jupiter"
+                data-description="Jupiter is the largest planet in the Solar System and contains enormous atmospheric storms."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA04866/PIA04866~medium.jpg"
+                    alt="Jupiter"
+                >
+
+                <span>Jupiter</span>
+
+            </button>
+
+
+            <!-- SATURN -->
+
+            <button
+                class="planet saturn"
+                data-planet="Saturn"
+                data-description="Saturn is a gas giant surrounded by an extensive ring system."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA11141/PIA11141~medium.jpg"
+                    alt="Saturn"
+                >
+
+                <span>Saturn</span>
+
+            </button>
+
+
+            <!-- URANUS -->
+
+            <button
+                class="planet uranus"
+                data-planet="Uranus"
+                data-description="Uranus is a distant ice giant with an unusually tilted axis."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA18182/PIA18182~medium.jpg"
+                    alt="Uranus"
+                >
+
+                <span>Uranus</span>
+
+            </button>
+
+
+            <!-- NEPTUNE -->
+
+            <button
+                class="planet neptune"
+                data-planet="Neptune"
+                data-description="Neptune is a distant blue ice giant with extremely powerful winds."
+            >
+
+                <img
+                    src="https://images-assets.nasa.gov/image/PIA01492/PIA01492~medium.jpg"
+                    alt="Neptune"
+                >
+
+                <span>Neptune</span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PLANET INFORMATION -->
+
+        <div class="planet-panel">
+
+            <div class="panel-number">
+                DESTINATION
+            </div>
+
+            <h3 id="planetName">
+                Select a Planet
+            </h3>
+
+            <p id="planetDescription">
+                Choose a planetary destination to view mission information.
+            </p>
+
+            <button
+                id="exploreButton"
+                class="explore-button"
+                disabled
+            >
+                SELECT DESTINATION
+            </button>
+
+        </div>
+
+
+        <div class="nasa-credit">
+            PLANET IMAGERY / NASA & NASA/JPL
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- MARS EXPLORATION -->
+    <!-- ===================================================== -->
+
+    <section
+        id="planetScreen"
+        class="screen planet-screen hidden"
+    >
+
+
+        <div
+            id="marsViewport"
+            class="mars-viewport"
+        >
+
+            <div
+                id="marsWorld"
+                class="mars-world"
+            >
+
+
+                <!-- Terrain -->
+
+                <div class="mars-horizon horizon-one"></div>
+                <div class="mars-horizon horizon-two"></div>
+
+
+                <div class="crater crater-one"></div>
+                <div class="crater crater-two"></div>
+                <div class="crater crater-three"></div>
+                <div class="crater crater-four"></div>
+
+
+
+                <!-- ================================================= -->
+                <!-- IRON -->
+                <!-- ================================================= -->
+
+                <div
+                    class="resource resource-iron"
+                    data-name="Iron Sample"
+                    style="left: 980px; top: 680px;"
+                >
+
+                    <div class="resource-ring"></div>
+
+                    <div class="resource-core">
+
+                        <img
+                            src="https://images-assets.nasa.gov/image/PIA05564/PIA05564~medium.jpg"
+                            alt="Iron rich Martian material"
+                        >
+
+                    </div>
+
+                    <span>
+                        IRON-RICH SIGNAL
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- REGOLITH -->
+                <!-- ================================================= -->
+
+                <div
+                    class="resource resource-regolith"
+                    data-name="Regolith Sample"
+                    style="left: 1580px; top: 580px;"
+                >
+
+                    <div class="resource-ring"></div>
+
+                    <div class="resource-core">
+
+                        <img
+                            src="https://images-assets.nasa.gov/image/PIA16173/PIA16173~medium.jpg"
+                            alt="Martian regolith"
+                        >
+
+                    </div>
+
+                    <span>
+                        REGOLITH SIGNAL
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- ICE -->
+                <!-- ================================================= -->
+
+                <div
+                    class="resource resource-ice"
+                    data-name="Ice Core"
+                    style="left: 1710px; top: 1020px;"
+                >
+
+                    <div class="resource-ring"></div>
+
+                    <div class="resource-core">
+
+                        <img
+                            src="https://images-assets.nasa.gov/image/PIA00533/PIA00533~medium.jpg"
+                            alt="Water ice evidence on Mars"
+                        >
+
+                    </div>
+
+                    <span>
+                        WATER-ICE SIGNAL
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- MINERAL -->
+                <!-- ================================================= -->
+
+                <div
+                    class="resource resource-mineral"
+                    data-name="Mineral Fragment"
+                    style="left: 850px; top: 1110px;"
+                >
+
+                    <div class="resource-ring"></div>
+
+                    <div class="resource-core">
+
+                        <img
+                            src="https://images-assets.nasa.gov/image/PIA19161/PIA19161~medium.jpg"
+                            alt="Martian mineral veins"
+                        >
+
+                    </div>
+
+                    <span>
+                        MINERAL SIGNAL
+                    </span>
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- PLAYER -->
+                <!-- ================================================= -->
+
+                <div
+                    id="player"
+                    class="player"
+                >
+
+                    <div class="astronaut">
+
+                        <div class="helmet">
+
+                            <div class="visor"></div>
+
+                        </div>
+
+                        <div class="backpack"></div>
+
+                        <div class="astronaut-body"></div>
+
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+
+                        <div class="leg leg-left"></div>
+                        <div class="leg leg-right"></div>
+
+                    </div>
+
+                    <div class="player-shadow"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- TOP HUD -->
+        <!-- ================================================= -->
+
+        <header class="planet-topbar">
+
+            <button
+                id="returnButton"
+                class="return-button"
+            >
+                ← SOLAR SYSTEM
+            </button>
+
+
+            <div class="planet-mission-title">
+
+                <span>
+                    PLANETARY EXPLORATION
+                </span>
+
+                <h2>
+                    MARS
+                </h2>
+
+            </div>
+
+
+            <div class="mission-id">
+                MX-01
+            </div>
+
+        </header>
+
+
+
+        <!-- ================================================= -->
+        <!-- PACKAGE HUD -->
+        <!-- ================================================= -->
+
+        <aside class="package-panel">
+
+            <span class="package-label">
+                MARS PACKAGE
+            </span>
+
+            <div class="package-progress">
+
+                <span id="progressText">
+                    0 / 4 COMPONENTS
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+
+            <div class="component-list">
+
+                <div
+                    class="component-row"
+                    data-component="Iron Sample"
+                >
+                    <span class="status-light"></span>
+                    IRON SAMPLE
+                </div>
+
+                <div
+                    class="component-row"
+                    data-component="Regolith Sample"
+                >
+                    <span class="status-light"></span>
+                    REGOLITH SAMPLE
+                </div>
+
+                <div
+                    class="component-row"
+                    data-component="Ice Core"
+                >
+                    <span class="status-light"></span>
+                    ICE CORE
+                </div>
+
+                <div
+                    class="component-row"
+                    data-component="Mineral Fragment"
+                >
+                    <span class="status-light"></span>
+                    MINERAL FRAGMENT
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================================================= -->
+        <!-- CONTROLS -->
+        <!-- ================================================= -->
+
+        <div class="controls-panel">
+
+            <span>W A S D</span>
+            MOVE
+
+            <div class="controls-line"></div>
+
+            <span>E</span>
+            ANALYZE
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- INTERACTION -->
+        <!-- ================================================= -->
+
+        <div
+            id="interactionPrompt"
+            class="interaction-prompt"
+        >
+
+            <span class="key">
+                E
+            </span>
+
+            <div>
+
+                <small>
+                    ANALYZE NASA RECORD
+                </small>
+
+                <strong id="interactionName">
+                    UNKNOWN MATERIAL
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- COLLECTION NOTIFICATION -->
+        <!-- ================================================= -->
+
+        <div
+            id="collectionNotification"
+            class="collection-notification"
+        >
+            SAMPLE SECURED
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- NASA ANALYSIS POPUP -->
+        <!-- ================================================= -->
+
+        <div
+            id="sampleModal"
+            class="sample-modal hidden"
+        >
+
+            <div class="sample-card">
+
+
+                <div class="sample-photo-area">
+
+                    <img
+                        id="samplePhoto"
+                        src=""
+                        alt=""
+                    >
+
+                    <div
+                        id="sampleCredit"
+                        class="sample-credit"
+                    ></div>
+
+                </div>
+
+
+                <div class="sample-information">
+
+                    <div
+                        id="sampleCode"
+                        class="sample-code"
+                    >
+                        NASA SCIENCE RECORD
+                    </div>
+
+                    <h2 id="sampleTitle">
+                        Sample
+                    </h2>
+
+                    <p
+                        id="sampleSubtitle"
+                        class="sample-subtitle"
+                    ></p>
+
+
+                    <div
+                        id="sampleFacts"
+                        class="sample-facts"
+                    ></div>
+
+
+                    <p
+                        id="sampleNote"
+                        class="sample-note"
+                    ></p>
+
+
+                    <div class="sample-actions">
+
+                        <button id="collectSampleButton">
+                            COLLECT & SECURE SAMPLE
+                        </button>
+
+                        <button id="cancelSampleButton">
+                            CANCEL
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- COMPLETE -->
+        <!-- ================================================= -->
+
+        <div
+            id="packageComplete"
+            class="package-complete hidden"
+        >
+
+            <div class="complete-box">
+
+                <div class="complete-code">
+                    MISSION MX-01 COMPLETE
+                </div>
+
+                <h2>
+                    MARS PACKAGE
+                </h2>
+
+                <h3>
+                    COMPLETE
+                </h3>
+
+                <p>
+                    Required planetary observations and
+                    samples have been successfully analyzed
+                    and secured.
+                </p>
+
+                <div class="complete-progress">
+                    4 / 4 COMPONENTS RECOVERED
+                </div>
+
+                <button id="continueButton">
+                    RETURN TO SOLAR SYSTEM
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="mars-nasa-credit">
+            MARS & SAMPLE IMAGERY / NASA/JPL-CALTECH
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
